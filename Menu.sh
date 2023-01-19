@@ -58,12 +58,15 @@ function eliminarArquivo() {
         read -p "Estás seguro de querer eliminar $dfile_name ? (s/n) " confirmfile
         if [ $confirmfile == s ]
         then
-            if [ $dfile_name == "Menu.sh" ]; 
+            if [ $dfile_name == "Menu.sh" ] 
             then
-                echo "\033[31mError. Non se pode usar o programa para borrar o propio programa.\033[0m"
-            else
+                echo -e "\033[31mError. Non se pode usar o programa para borrar o propio programa.\033[0m"
+            elif [ -d $dfile_name ]
+            then
                 echo `rm -r $dfile_name`
                 echo Arquivo eliminado eliminado exitosamente.
+            else
+                echo -e "\033[31mError. O arquivo a eliminar non existe.\033[0m"
             fi
         else
             echo Acción cancelada.
