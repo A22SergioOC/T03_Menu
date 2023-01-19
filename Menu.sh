@@ -26,6 +26,11 @@ echo "╚═══════════════════════�
 read -p "Escolla unha opción: " escolla
 }
 
+function listarContido() {
+    echo `ls`
+    sleep 4
+}
+
 function crearDirectorio() {
     read -p "Introduce o nome do directorio: " folder_name
     echo `mkdir $folder_name`
@@ -53,8 +58,13 @@ function eliminarArquivo() {
         read -p "Estás seguro de querer eliminar $dfile_name ? (s/n) " confirmfile
         if [ $confirmfile == s ]
         then
-            echo `rm -r $dfile_name`
-            echo Arquivo eliminado eliminado exitosamente
+            if [ $dfile_name == "Menu.sh" ]; 
+            then
+                echo "\033[31mError. Non se pode usar o programa para borrar o propio programa.\033[0m"
+            else
+                echo `rm -r $dfile_name`
+                echo Arquivo eliminado eliminado exitosamente.
+            fi
         else
             echo Acción cancelada.
         fi
@@ -67,8 +77,7 @@ do
 
     case $escolla in
         1)
-        echo `ls`
-        sleep 4
+        listarContido
         ;;
         2)
         crearDirectorio
