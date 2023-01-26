@@ -146,6 +146,10 @@ function eliminarArquivo() { #Esta función serve para eliminar un arquivo ou di
             then                            # Este proceso faise por razóns obvias. Se se elimina o script, xa non se poderá volver a executar.
                 echo -e "\033[31mError. Non se pode usar o programa para borrar o propio programa.\033[0m"
                 echo -e "\033[31mVolvendo ao menú...\033[0m"
+            elif [ $dfile_name == "Scripts_PowerShell" ]
+            then
+                echo -e "\033[31mError. Esa carpeta está protexida ao pertencer a outro exercicio.\033[0m"
+                echo -e "\033[31mVolvendo ao menú...\033[0m"
             else
                 echo `rm -r $dfile_name`
                 echo Arquivo eliminado exitosamente.
