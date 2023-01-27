@@ -1,19 +1,14 @@
-$minimo = Read-Host "Escribe un número mínimo"
-$maximo = Read-Host "Escribe un número máximo"
-if ($maximo -ge $minimo){
+$minimo = Read-Host "Escribe un numero minimo"
+$maximo = Read-Host "Escribe un numero maximo"
 
-    Write-Host "Error" -ForegroundColor 'Red' 
-    Start-Sleep -Seconds 3
-
-
-}
 $random = Get-Random -Minimum $minimo -Maximum $maximo
 $counter = 0
 Clear-Host
 
-Write-Host $random
 
 do{
+
+    $counter++
 
     $resposta = Read-Host "Escribe a resposta"
 
@@ -27,11 +22,9 @@ do{
 
     } else {
 
-        Write-Host "Acertaches!"
+        Write-Host "Acertaches! Costouche $counter intentos."
 
     }
-
-    $counter++
 
 }
 until($resposta -eq $random)
