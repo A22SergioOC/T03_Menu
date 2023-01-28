@@ -10,7 +10,7 @@ do{
 
     $counter++
 
-    $resposta = Read-Host "Escribe a resposta"
+    $resposta = Read-Host "Adivina a resposta"
 
     if ($resposta -lt $random) {
 
